@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if latest_documents_list %}
+<ul>
+{% for newdoc in latest_documents_list %}
+   <li><a href="{% url 'polls:detail' newdoc.id %}">{{ newdoc.title }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No documents are available.</p>
+{% endif %}
